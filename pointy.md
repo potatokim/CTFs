@@ -1,5 +1,6 @@
 ## pointy
-#### Problem
+
+### Problem
 > Exploit the function pointers in this [program](https://2019shell1.picoctf.com/static/fdb9b5cce6ac0c34e421786f42629036/vuln). It is also found in /problems/pointy_0_4da9845cb7c41585de522db47f569424 on the shell server. [Source](https://2019shell1.picoctf.com/static/fdb9b5cce6ac0c34e421786f42629036/vuln.c).  
   
 Note the one function pointer in vuln.c's struct Student: `void (*scoreProfessor)(struct Professor*, int)` and that scoreProfessor is called on line 93.  
@@ -10,9 +11,7 @@ To get the program to call `win()`, we need to somehow assign win's address to s
 
 This means we could give win's address as a professor's score. Then, cast the professor into a student, which effectively casts Professor's `int lastscore` to Student's `void (*scoreProfessor)(struct Professor*, int)` ie. casts the professor's score to a pointer to win(). Thus the next time student->scoreProfessor is called, win would be executed.  
 
-#### Solution 1: Python  
-
-#### Solution 2: objdump
+### Solution: objdump
 First `objdump -D vuln | grep win` to disassemble all sections of vuln to get addresses, and pipe that ouput to grep to get only the win function section. You will 08048696 is the address in hex, which converts to 134514326 as int / unsigned int.  
 ```
 @pico-2019-shell1:/problems/pointy_0_4da9845cb7c41585de522db47f569424$ ./vuln
