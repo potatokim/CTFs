@@ -1,1 +1,1 @@
-# QuaratineCTFGlowUp
+# CTF Writeups
