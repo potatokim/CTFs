@@ -69,7 +69,9 @@ undefined4 main(void)
 
 Quick search on Google tells us that rand() in C produces a replicable sequence of random numbers if we know the seed it uses. The seed used is set by srand().  
 
-Note the source code `local_18 = time((time_t *)0x0); srand(local_18);` So our exploit script just needs to set `time((time_t *)0x0` or `time(0)` as the seed. Here is the **exploit script**:
+Note the source code `local_18 = time((time_t *)0x0); srand(local_18);` So our exploit script just needs to set `time((time_t *)0x0` or `time(0)` as the seed. 
+
+1. Here is the **exploit script** seed.c:
 ```
 #include <stdio.h>
 #include <time.h>
@@ -85,4 +87,6 @@ int main() {
         }
 }
 ```
+2. scp seec.c to the server so you could get the exact time that is on the server (because `srand()` in our problem depends on `time()`). Then gcc to compile seed.c. 
+3. Pipe the executable to the game using `./seed | nc 2019shell1.picoctf.com 4160`
 **Flag: picoCTF{pseudo_random_number_generator_not_so_random_24ce919be49576c7df453a4a3e6fbd40}**
