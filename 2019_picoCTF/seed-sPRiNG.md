@@ -1,4 +1,5 @@
 ## Writeup for 2019 picoCTF: seed-sPRiNG
+Binary Exploitation, 350 points
 
 ### Problem
 > The most revolutionary game is finally available: seed sPRiNG is open right now! [seed_spring](https://2019shell1.picoctf.com/static/6c73aa391245deeea00aecc8d5a78f88/seed_spring). Connect to it with nc 2019shell1.picoctf.com 4160. 
