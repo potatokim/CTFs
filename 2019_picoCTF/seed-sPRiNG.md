@@ -87,6 +87,6 @@ int main() {
         }
 }
 ```
-2. scp seec.c to the server so you could get the exact time that is on the server (because `srand()` in our problem depends on `time()`). Then gcc to compile seed.c. 
+2. scp seed.c to the server so you could get the exact time that is on the server (because `srand()` in our problem depends on `time()`). Then gcc to compile seed.c. 
 3. Pipe the executable to the game using `./seed | nc 2019shell1.picoctf.com 4160`
 **Flag: picoCTF{pseudo_random_number_generator_not_so_random_24ce919be49576c7df453a4a3e6fbd40}**
