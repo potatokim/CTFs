@@ -69,7 +69,7 @@ undefined4 main(void)
 
 Quick search on Google tells us that rand() in C produces a replicable sequence of random numbers if we know the seed it uses. The seed used is set by srand().  
 
-Note the source code `local_18 = time((time_t *)0x0); srand(local_18);` So our exploit script just need to set `time((time_t *)0x0` or `time(0)` as the seed. Here is the **exploit script**:
+Note the source code `local_18 = time((time_t *)0x0); srand(local_18);` So our exploit script just needs to set `time((time_t *)0x0` or `time(0)` as the seed. Here is the **exploit script**:
 ```
 #include <stdio.h>
 #include <time.h>
