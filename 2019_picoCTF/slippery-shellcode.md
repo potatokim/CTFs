@@ -3,7 +3,8 @@
 ### Problem:  
 > This [program](https://2019shell1.picoctf.com/static/b32bc88726ab35fa8151726bb172d772/vuln) is a little bit more tricky. Can you spawn a shell and use that to read the flag.txt? You can find the program in /problems/slippery-shellcode_1_69e5bb04445e336005697361e4c2deb0 on the shell server. [Source](https://2019shell1.picoctf.com/static/b32bc88726ab35fa8151726bb172d772/vuln.c).
 
-Similar to handy-shellcode, except `buf` isn't executed, but offset by a random number between 1 and 256 then executed from the offset location. To account for this, we will prepend a NOP sled (256 * `\x90`) to our `execve(/bin/sh)` shellcode (search on shell-storm.org) and send that in as `buf`. A NOP sled is a sequence of no-operations, each does nothing and moves on to the next instruction. Thus, regardless of what the random offset is and where in `buf` we would execute from, buf's NOP sled would always lead us to the `execve(/bin/sh)` portion.  
+### A NOP Sled:
+This problem is similar to handy-shellcode, except `buf` isn't executed, but offset by a random number between 1 and 256 then executed from the offset location. To account for this, we will prepend a NOP sled (256 * `\x90`) to our `execve(/bin/sh)` shellcode (search on shell-storm.org) and send that in as `buf`. A NOP sled is a sequence of no-operations, each does nothing and moves on to the next instruction. Thus, regardless of what the random offset is and where in `buf` we would execute from, buf's NOP sled would always lead us to the `execve(/bin/sh)` portion.  
 
 Note: `cat` after `echo...` to keep the input stream open.
 
