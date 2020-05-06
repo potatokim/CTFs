@@ -1,4 +1,5 @@
 ## Writeup for 2019 picoCTF: slippery-shellcode  
+Binary Exploitation, 200 points
 
 ### Problem:  
 > This [program](https://2019shell1.picoctf.com/static/b32bc88726ab35fa8151726bb172d772/vuln) is a little bit more tricky. Can you spawn a shell and use that to read the flag.txt? You can find the program in /problems/slippery-shellcode_1_69e5bb04445e336005697361e4c2deb0 on the shell server. [Source](https://2019shell1.picoctf.com/static/b32bc88726ab35fa8151726bb172d772/vuln.c).
