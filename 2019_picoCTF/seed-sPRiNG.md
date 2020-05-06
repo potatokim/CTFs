@@ -3,7 +3,7 @@
 ### Problem
 > The most revolutionary game is finally available: seed sPRiNG is open right now! [seed_spring](https://2019shell1.picoctf.com/static/6c73aa391245deeea00aecc8d5a78f88/seed_spring). Connect to it with nc 2019shell1.picoctf.com 4160. 
 
-### Solution: Ghidra
+### Ghidra:
 The file seed_spring given is a binary file. To decompile it to C, we could use Ghidra, a reverse engineering tool. Import seed_spring then locate the main function (click on main on the second pane on the screen's left). 
 
 Here's what Ghidra outputs:
@@ -64,7 +64,11 @@ undefined4 main(void)
   exit(-1);
 }
 ```
+
+### Solution:
+
 Quick search on Google tells us that rand() in C produces a replicable sequence of random numbers if we know the seed it uses. The seed used is set by srand().  
+
 Note the source code `local_18 = time((time_t *)0x0); srand(local_18);` So our exploit script just need to set `time((time_t *)0x0` or `time(0)` as the seed. Here is the **exploit script**:
 ```
 #include <stdio.h>
