@@ -5,7 +5,7 @@ General Skills, 100 points
 > Can you find the flag in this [file](https://2018shell.picoctf.com/static/22ef75638cf590f5fad3db45463883bb/strings) without actually running it? You can also find the file in /problems/strings_2_b7404a3aee308619cb2ba79677989960 on the shell server.
 
 Funny I didn't read the hint and was playing around with `xxd` so here's a solution using it.  
-The first command reveals the first part of the flag, as well as its location `0001aae0`. This means to find the remaining parts of the flag, we just need to find the locations right after. 
+The first command reveals the first part of the flag, as well as its location `0001aae0`. This means to find the remaining parts of the flag, we just need to find the locations right after (observe that the offset from one location to the next in xxd is 16 bytes). 
 ### Solution:
 ```
 xxd strings | grep "pico"
