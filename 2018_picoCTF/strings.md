@@ -17,4 +17,4 @@ xxd strings | grep 0001aaf0
 xxd strings | grep 0001ab00
 0001ab00: 6132 387d 0000 0000 0000 0000 0000 0000  a28}............
 ```
-**Flag: picoCTF{picoCTF{sTrIngS_sAVeS_Time_3f712a28}**
+**Flag: picoCTF{sTrIngS_sAVeS_Time_3f712a28}**
